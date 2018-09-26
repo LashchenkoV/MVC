@@ -24,6 +24,7 @@ class RouteConfigurator
         Router::instance()->addRoute(new Route("delNote","main","delNote"));
         Router::instance()->addRoute(new Route("editNote","main","editNote"));
         Router::instance()->addRoute(new Route("getEditForm","main","getEditForm"));
+        Router::instance()->addRoute(new Route("test","main","test"));
         Router::instance()->addRoute(new Route("404","c404","index"));
     }
 

@@ -11,7 +11,15 @@ namespace core\system\database;
 
 class DatabaseQuery
 {
-    private $table, $db;
+    private $table;
+    private $db;
+    private $clazz = NULL;
+
+    public function setClazz($value)
+    {
+        $this->clazz = $value;
+        return $this;
+    }
 
     public function __construct(Database $database, string $table)
     {
@@ -299,10 +307,22 @@ class DatabaseQuery
     }
 
     public function all(array $params=[]){
-        return $this->db->selectAll($this->buildSelect(),$params);
+        $result = $this->db->selectAll($this->buildSelect(),$params);
+        if($this->clazz==NULL) return $result;
+        $res = [];
+        foreach ($result as $r){
+            $instance = new $this->clazz;
+            $instance->setData($r);
+            $res[] = $instance;
+        }
+        return $res;
     }
     public function first(array $params=[]){
-        return $this->db->selectOne($this->buildSelect(),$params);
+        $result =  $this->db->selectOne($this->buildSelect(),$params);
+        if($this->clazz==NULL) return $result;
+        $instance = new $this->clazz;
+        $instance->setData($result);
+        return $instance;
     }
     public function value(array $params=[]){
         return $this->db->selectValue($this->buildSelect(),$params);

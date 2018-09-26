@@ -10,6 +10,18 @@ use core\system\database\DatabaseQuery;
 
 class Main extends Controller
 {
+    public function action_test(){
+//        $note = new Note();
+//        $note->title = "dsd";
+//        $note->text = "dsd";
+//        $note->date = 2211212;
+//        $note->save();
+
+//        $note = Note::where("title",":name")->first(["name"=>"fd"]);
+//        $note->title = "lol";
+//        $note->save();
+
+    }
     public function action_index()
     {
         $tableNotes = new View("tableNotes");

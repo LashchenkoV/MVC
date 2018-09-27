@@ -15,7 +15,7 @@ class DatabaseConfigurator
         'default'=>[
             'host'=>'127.0.0.1',
             'port'=>3306,
-            'dbname'=>'todo',
+            'dbname'=>'mydb',
             'user'=>'root',
             'pass'=>'root',
             'charset'=>'utf8'

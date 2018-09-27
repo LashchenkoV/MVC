@@ -60,7 +60,7 @@ class Session
         return true;
     }
 
-    public function getUserId(){
+    public function getUserId():int{
         if(!$this->validateSession()) throw new \Exception("Session invalid");
         return (int) $this->session->user_id;
     }

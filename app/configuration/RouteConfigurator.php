@@ -18,14 +18,11 @@ class RouteConfigurator
 {
     public static function routerConfigure(){
         Router::instance()->addRoute(new Route("","main","index"));
-        Router::instance()->addRoute(new Route("test","main","test"));
-        Router::instance()->addRoute(new Route("addTodo","main","addTodo"));
-        Router::instance()->addRoute(new Route("getTableNotes","main","getTableNotes"));
-        Router::instance()->addRoute(new Route("delNote","main","delNote"));
-        Router::instance()->addRoute(new Route("editNote","main","editNote"));
-        Router::instance()->addRoute(new Route("getEditForm","main","getEditForm"));
-        Router::instance()->addRoute(new Route("test","main","test"));
         Router::instance()->addRoute(new Route("404","c404","index"));
+
+        Router::instance()->addRoute(new Route("register","auth","register"));
+        Router::instance()->addRoute(new Route("login","auth","login"));
+        Router::instance()->addRoute(new Route("logout","auth","logout"));
     }
 
     public static function onRouterError(RouterException $e){

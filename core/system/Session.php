@@ -41,7 +41,7 @@ class Session
         $session->token = self::getToken();
         $session->user_id = $id;
         $session->expires = $long?0:time()+$time;
-        $session->created = time();
+        $session->crated = time();
         $session->save();
 
         $ctime =  $long?3600*24*365:time()+$time;

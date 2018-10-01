@@ -9,7 +9,7 @@
 namespace core\system\database;
 
 use app\configuration\DatabaseConfigurator;
-use \PDO;
+use \PDO as PDO;
 class Database
 {
     private $dbh;

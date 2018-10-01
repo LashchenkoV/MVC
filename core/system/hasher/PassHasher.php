@@ -52,7 +52,7 @@ class PassHasher
         return $this->_hash($data,$this->generateSalt());
     }
 
-    public function validateHash(string $data, string $hash):bool {
+    public function validateHash(string $data, string $hash){
         $salt = substr($hash,$this->_pos,$this->_len);
         $hash2 = $this->_hash($data,$salt);
         return $hash===$hash2;

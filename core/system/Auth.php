@@ -11,6 +11,7 @@ namespace core\system;
 
 use core\system\hasher\PassHasher;
 use core\system\models\User;
+use core\system\Session as Session;
 
 class Auth
 {
@@ -23,9 +24,9 @@ class Auth
     private function __construct(){}
 
     public function login(string $login, string $pass, $save = false){
-        $user = User::where("login",":login")->first(["login"=>$login]);
+        $user = User::where("login","?")->first([$login]);
         if($user->isEmpty()) return false;
-        if(PassHasher::instance()->validateHash($pass,$user->pass)) return false;
+        if(!PassHasher::instance()->validateHash($pass,$user->pass)) return false;
         Session::instance()->createUserSession($user->id,$save);
         return true;
     }

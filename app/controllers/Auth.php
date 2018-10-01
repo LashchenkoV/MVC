@@ -36,11 +36,11 @@ class Auth extends Controller
             try{
                 $user->save();
             }catch (\Exception $e){
-                throw new \Exception("Login уже есть");
+                throw new \Exception("Логин занят.");
             }
             echo "OK";
         }catch (\Exception $e){
-            $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
